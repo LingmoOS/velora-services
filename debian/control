@@ -1,7 +1,7 @@
-Source: dde-services
+Source: velora-services
 Section: admin
 Priority: optional
-Maintainer: Deepin Sysdev <sysdev@deepin.com>
+Maintainer: Lingmo OS Team <team@lingmo.org>
 Build-Depends:  debhelper (>= 11),
  pkg-config,
  cmake,
@@ -15,8 +15,8 @@ Build-Depends:  debhelper (>= 11),
  libx11-dev,
  libxcb-randr0-dev,
  libxcb1-dev,
-Standards-Version: 4.1.3
-Homepage: https://github.com/linuxdeepin
+Standards-Version: 4.5.0
+Homepage: https://github.com/LingmoOS/velora-services
 
 Package: dde-services
 Architecture: any

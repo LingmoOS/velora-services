@@ -1,3 +1,9 @@
+velora-services (1.0.22.lingmo.1) unstable; urgency=medium
+
+  * new release for Lingmo OS.
+
+ -- Lingmo OS Team <team@lingmo.org>  Fri, 01 May 2026 21:14:00 +0800
+
 dde-services (1.0.21) unstable; urgency=medium
 
   * fix: apply scale factor to GTK cursor theme size
