@@ -19,7 +19,7 @@ class TimeDateDBusProxy;
 class ThemeManager : public QObject
 {
     Q_OBJECT
-    Q_CLASSINFO("D-Bus Interface", "org.deepin.service.thememanager")
+    Q_CLASSINFO("D-Bus Interface", "org.lingmo.service.thememanager")
 
     // 经纬坐标
     struct coordinate{

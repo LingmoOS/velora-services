@@ -11,7 +11,7 @@
 static sd_bus *dbus = NULL;
 static sd_bus_slot *slot = NULL;
 static const char *dbus_path = "/org/deepin/dde/IPWatchD1";
-static const char *dbus_interface = "org.deepin.dde.IPWatchD1";
+static const char *dbus_interface = "org.lingmo.IPWatchD1";
 
 static const sd_bus_vtable ipwatchd_vtable[] = {
     SD_BUS_VTABLE_START(0),

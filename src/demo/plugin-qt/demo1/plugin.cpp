@@ -25,7 +25,7 @@ extern "C" int DSMRegister(const char *name, void *data)
             | QDBusConnection::ExportAllSignals | QDBusConnection::ExportAllProperties;
 
     auto connection = reinterpret_cast<QDBusConnection *>(data);
-    connection->registerObject("/org/deepin/service/demo1", service, opts);
+    connection->registerObject("/org/lingmo/service/demo1", service, opts);
     test = new Test();
     test->name = "tetssdfsdgfdhdghdfh";
     test->id = 100;

@@ -26,7 +26,7 @@ bool Service::Register(const QString &id, QString &result2)
     qInfo() << "Service::Register called. idd:" << id;
 
     if (id == "error") {
-        sendErrorReply("com.deepin.dbusdemo.RegisterNotSupported",
+        sendErrorReply("com.lingmo.dbusdemo.RegisterNotSupported",
                        "The method call 'Register()' is not supported");
     }
     result2 = "reply2";

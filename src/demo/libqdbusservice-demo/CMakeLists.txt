@@ -18,7 +18,7 @@ if (NOT CMAKE_BUILD_TYPE STREQUAL "Debug") # delete this judgement in your proje
 endif()
 
 qt_add_dbus_adaptor(ADAPTER_SOURCES
-                     org.deepin.service.sdk.demo.xml
+                     org.lingmo.service.sdk.demo.xml
                      service.h
                      Service)
 
@@ -65,7 +65,7 @@ else()
     install(FILES sdk-demo.json DESTINATION share/deepin-service-manager/other/)
 endif()
 
-install(FILES org.deepin.service.sdk.demo.service DESTINATION share/dbus-1/system-services/)
-install(FILES org.deepin.service.sdk.demo.conf
+install(FILES org.lingmo.service.sdk.demo.service DESTINATION share/dbus-1/system-services/)
+install(FILES org.lingmo.service.sdk.demo.conf
     DESTINATION share/dbus-1/system.d/
 )

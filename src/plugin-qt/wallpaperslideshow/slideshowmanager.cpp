@@ -292,9 +292,9 @@ bool SlideshowManager::changeBgAfterLogin(QString monitorSpace)
     QString runDir = utils::GetUserRuntimeDir();
 
     QDBusPendingReply<QString> currentSessionPath = DDBusSender()
-        .service("org.deepin.dde.SessionManager1")
+        .service("org.lingmo.SessionManager1")
         .path("/org/deepin/dde/Session1")
-        .interface("org.deepin.dde.Session1")
+        .interface("org.lingmo.Session1")
         .method("GetSessionPath")
         .call();
 
@@ -338,8 +338,8 @@ void SlideshowManager::setMonitorBackground(const QString &monitorName, const QS
     if (DGuiApplicationHelper::testAttribute(DGuiApplicationHelper::IsWaylandPlatform)) {
         QString arg = QString("personalization/wallpaper?url=%1&monitor=%2").arg(utils::enCodeURI(imageGile, SCHEME_FILE)).arg(monitorName);
         DDBusSender()
-                .service("org.deepin.dde.ControlCenter1")
-                .interface("org.deepin.dde.ControlCenter1")
+                .service("org.lingmo.ControlCenter1")
+                .interface("org.lingmo.ControlCenter1")
                 .path("/org/deepin/dde/ControlCenter1")
                 .method("ShowPage")
                 .arg(arg)

@@ -21,7 +21,7 @@ extern "C" int DSMRegister(const char *name, void *data)
 
     manager = new ThemeManager();
     auto connection = reinterpret_cast<QDBusConnection *>(data);
-    connection->registerObject("/org/deepin/service/thememanager", manager, QDBusConnection::ExportScriptableContents);
+    connection->registerObject("/org/lingmo/service/thememanager", manager, QDBusConnection::ExportScriptableContents);
     return 0;
 }
 

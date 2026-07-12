@@ -19,7 +19,7 @@ extern "C" int DSMRegister(const char *name, void *data)
     service = new Service();
     new Demo2aAdaptor(service);
     auto connection = reinterpret_cast<QDBusConnection *>(data);
-    connection->registerObject("/org/deepin/service/demo2",
+    connection->registerObject("/org/lingmo/service/demo2",
                                service,
                                QDBusConnection::ExportAdaptors);
     return 0;

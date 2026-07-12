@@ -14,9 +14,9 @@ TimeDateDBusProxy::TimeDateDBusProxy(QObject *parent)
                                              QDBusConnection::systemBus(), 
                                              this))
 {
-    QDBusConnection::sessionBus().connect(QStringLiteral("org.deepin.dde.Timedate1"), 
-                                          QStringLiteral("/org/deepin/dde/Timedate1"), 
-                                          QStringLiteral("org.deepin.dde.Timedate1"), 
+    QDBusConnection::sessionBus().connect(QStringLiteral("org.lingmo.Timedate1"),
+                                          QStringLiteral("/org/lingmo/Timedate1"),
+                                          QStringLiteral("org.lingmo.Timedate1"),
                                           "TimeUpdate", 
                                           this, 
                                           SIGNAL(TimeUpdate()));

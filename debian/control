@@ -1,4 +1,4 @@
-Source: velora-services
+Source: lingmo-services
 Section: admin
 Priority: optional
 Maintainer: Lingmo OS Team <team@lingmo.org>
@@ -16,12 +16,12 @@ Build-Depends:  debhelper (>= 11),
  libxcb-randr0-dev,
  libxcb1-dev,
 Standards-Version: 4.5.0
-Homepage: https://github.com/LingmoOS/velora-services
+Homepage: https://github.com/LingmoOS/lingmo-services
 
-Package: dde-services
+Package: lingmo-services
 Architecture: any
 Depends:
  ${shlibs:Depends},
  ${misc:Depends},
- deepin-service-manager (>= 1.0.5)
+ lingmo-service-manager (>= 1.0.5)
 Description: deepin desktop-environment plugins service

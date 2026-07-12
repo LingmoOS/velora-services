@@ -1,0 +1,4 @@
+[D-BUS Service]
+Name=org.lingmo.XSettings1
+Exec=/usr/bin/false
+SystemdService=org.lingmo.XSettings1.service

@@ -6,13 +6,13 @@
 
 #include <QDBusPendingReply>
 
-const QString DaemonService = QStringLiteral("org.deepin.dde.Daemon1");
-const QString DaemonPath = QStringLiteral("/org/deepin/dde/Daemon1");
-const QString DaemonInterface = QStringLiteral("org.deepin.dde.Daemon1");
+const QString DaemonService = QStringLiteral("org.lingmo.Daemon1");
+const QString DaemonPath = QStringLiteral("/org/lingmo/Daemon1");
+const QString DaemonInterface = QStringLiteral("org.lingmo.Daemon1");
 
-const QString AppearanceService = QStringLiteral("org.deepin.dde.Appearance1");
-const QString AppearancePath = QStringLiteral("/org/deepin/dde/Appearance1");
-const QString AppearanceInterface = QStringLiteral("org.deepin.dde.Appearance1");
+const QString AppearanceService = QStringLiteral("org.lingmo.Appearance1");
+const QString AppearancePath = QStringLiteral("/org/lingmo/Appearance1");
+const QString AppearanceInterface = QStringLiteral("org.lingmo.Appearance1");
 
 
 AppearanceDBusProxy::AppearanceDBusProxy(QObject *parent)
@@ -22,11 +22,11 @@ AppearanceDBusProxy::AppearanceDBusProxy(QObject *parent)
     if (sessionType == "wayland") {
         m_wmInterface = nullptr;
     } else {
-        m_wmInterface = new DDBusInterface("com.deepin.wm", "/com/deepin/wm", "com.deepin.wm", QDBusConnection::sessionBus(), this);
+        m_wmInterface = new DDBusInterface("com.lingmo.wm", "/com/lingmo/wm", "com.lingmo.wm", QDBusConnection::sessionBus(), this);
     }
     m_appearanceInterface = new DDBusInterface(AppearanceService, AppearancePath, AppearanceInterface, QDBusConnection::sessionBus(), this);
     QDBusConnection::systemBus().connect(DaemonService, DaemonPath, DaemonInterface, "HandleForSleep", this, SIGNAL(HandleForSleep(bool)));
-    QDBusConnection::sessionBus().connect(QStringLiteral("org.deepin.dde.Timedate1"), QStringLiteral("/org/deepin/dde/Timedate1"), QStringLiteral("org.deepin.dde.Timedate1"), "TimeUpdate", this, SIGNAL(TimeUpdate()));
+    QDBusConnection::sessionBus().connect(QStringLiteral("org.lingmo.Timedate1"), QStringLiteral("/org/lingmo/Timedate1"), QStringLiteral("org.lingmo.Timedate1"), "TimeUpdate", this, SIGNAL(TimeUpdate()));
 }
 
 int AppearanceDBusProxy::GetCurrentWorkspace()

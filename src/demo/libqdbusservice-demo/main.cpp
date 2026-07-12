@@ -17,10 +17,10 @@ int main(int argc, char *argv[])
     DemoAdaptor adp(&s);
     // 从QDBusService对象拿到 QDBusConnection 防止注册对象不一致，导致无法正常管理权限
     QDBusConnection connection = s.qDbusConnection();
-    if (!connection.registerObject("/org/deepin/service/sdk/demo", &s)) {
+    if (!connection.registerObject("/org/lingmo/service/sdk/demo", &s)) {
         qWarning() << "failed to register dbus object" << connection.lastError().message();
     }
-    if (!connection.registerService("org.deepin.service.sdk.demo")) {
+    if (!connection.registerService("org.lingmo.service.sdk.demo")) {
         qWarning() << "failed to register dbus object" << connection.lastError().message();
     }
 

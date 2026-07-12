@@ -25,8 +25,8 @@ const static QString PLYMOUTH_CONFIGFILE = "/etc/plymouth/plymouthd.conf";
 XSettingsManager::XSettingsManager(QObject *parent)
     : QObject(parent)
     , m_settingDconfig(DTK_CORE_NAMESPACE::DConfig::create("org.deepin.dde.daemon", "org.deepin.XSettings"))
-    , m_greeterInterface(new QDBusInterface("org.deepin.dde.Greeter1", "/org/deepin/dde/Greeter1", "org.deepin.dde.Greeter1", QDBusConnection::systemBus()))
-    , m_sysDaemonInterface(new QDBusInterface("com.deepin.daemon.Daemon", "/com/deepin/daemon/Daemon", "com.deepin.daemon.Daemon", QDBusConnection::systemBus()))
+    , m_greeterInterface(new QDBusInterface("org.lingmo.Greeter1", "/org/lingmo/Greeter1", "org.lingmo.Greeter1", QDBusConnection::systemBus()))
+    , m_sysDaemonInterface(new QDBusInterface("com.lingmo.daemon.Daemon", "/com/lingmo/daemon/Daemon", "com.lingmo.daemon.Daemon", QDBusConnection::systemBus()))
     , m_xcbUtils(XcbUtils::getInstance())
 {
     connect(m_settingDconfig, &DTK_CORE_NAMESPACE::DConfig::valueChanged, this, &XSettingsManager::handleDConfigChangedCb);

@@ -1,4 +1,4 @@
-<interface name='org.deepin.dde.WallpaperSlideshow'>
+<interface name='org.lingmo.WallpaperSlideshow'>
 
     <method name='GetWallpaperSlideShow'>
         <arg type='s' name='monitorName' direction='in' />

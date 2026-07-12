@@ -39,9 +39,9 @@ endmacro(install_user_symlink)
 install(TARGETS ${BIN_NAME} DESTINATION ${CMAKE_INSTALL_LIBDIR}/deepin-service-manager/)
 install(FILES ${CMAKE_CURRENT_SOURCE_DIR}/misc/plugin-dde-xsettings.json DESTINATION ${CMAKE_INSTALL_FULL_DATADIR}/deepin-service-manager/user)
 install(FILES ${CMAKE_CURRENT_SOURCE_DIR}/misc/org.deepin.XSettings.json DESTINATION ${CMAKE_INSTALL_FULL_DATADIR}/dsg/configs/org.deepin.dde.daemon)
-install(FILES ${CMAKE_CURRENT_SOURCE_DIR}/misc/dbus/org.deepin.dde.XSettings1.service DESTINATION ${CMAKE_INSTALL_FULL_DATADIR}/dbus-1/services)
-install(FILES ${CMAKE_CURRENT_SOURCE_DIR}/misc/org.deepin.dde.XSettings1.service
+install(FILES ${CMAKE_CURRENT_SOURCE_DIR}/misc/dbus/org.lingmo.XSettings1.service DESTINATION ${CMAKE_INSTALL_FULL_DATADIR}/dbus-1/services)
+install(FILES ${CMAKE_CURRENT_SOURCE_DIR}/misc/org.lingmo.XSettings1.service
     DESTINATION lib/systemd/user/
-    RENAME org.deepin.dde.XSettings1.service
+    RENAME org.lingmo.XSettings1.service
 )
-install_user_symlink(org.deepin.dde.XSettings1.service dde-session-pre.target.wants)
+install_user_symlink(org.lingmo.XSettings1.service dde-session-pre.target.wants)

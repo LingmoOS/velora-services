@@ -30,7 +30,7 @@ plugin-ipwatchd/
 │
 ├── CMakeLists.txt         # 构建配置
 ├── ipwatchd.conf          # 配置文件
-├── org.deepin.ipwatchd.conf  # D-Bus 配置
+├── org.lingmo.ipwatchd.conf  # D-Bus 配置
 └── plugin-ipwatchd.json   # 插件元数据
 ```
 
@@ -109,9 +109,9 @@ sudo systemctl restart deepin-service-group@deepin-daemon.service
 systemctl status deepin-service-group@deepin-daemon.service
 
 # 测试 D-Bus 调用
-busctl call org.deepin.dde.IPWatchD1 \
-    /org/deepin/dde/IPWatchD1 \
-    org.deepin.dde.IPWatchD1 \
+busctl call org.lingmo.IPWatchD1 \
+    /org/lingmo/IPWatchD1 \
+    org.lingmo.IPWatchD1 \
     RequestIPConflictCheck ss "192.168.1.100" ""
 ```
 
@@ -145,14 +145,14 @@ systemctl cat deepin-service-group@deepin-daemon.service
 
 ### 监听 D-Bus 信号
 ```bash
-dbus-monitor --system "type='signal',interface='org.deepin.dde.IPWatchD1'"
+dbus-monitor --system "type='signal',interface='org.lingmo.IPWatchD1'"
 ```
 
 ### 主动检测 IP 冲突
 ```bash
-busctl call org.deepin.dde.IPWatchD1 \
-    /org/deepin/dde/IPWatchD1 \
-    org.deepin.dde.IPWatchD1 \
+busctl call org.lingmo.IPWatchD1 \
+    /org/lingmo/IPWatchD1 \
+    org.lingmo.IPWatchD1 \
     RequestIPConflictCheck ss "192.168.1.100" ""
 ```
 
@@ -163,9 +163,9 @@ journalctl -u deepin-service-group@deepin-daemon.service -f | grep ipwatch
 
 ## D-Bus 接口
 
-**服务名**: `org.deepin.dde.IPWatchD1`  
-**对象路径**: `/org/deepin/dde/IPWatchD1`  
-**接口**: `org.deepin.dde.IPWatchD1`
+**服务名**: `org.lingmo.IPWatchD1`<br>
+**对象路径**: `/org/lingmo/IPWatchD1`<br>
+**接口**: `org.lingmo.IPWatchD1`
 
 ### 方法
 

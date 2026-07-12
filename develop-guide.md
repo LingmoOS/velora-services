@@ -80,7 +80,7 @@ F --> K
 
 ```json
 {
-  "name": "org.deepin.service.demo",
+  "name": "org.lingmo.service.demo",
   "pluginPath": "demo.so",
   "group": "app",
   "pluginType": "qt",
@@ -91,10 +91,10 @@ F --> K
   "startDelay": 0,
   "policy": [
     {
-      "path": "/org/deepin/service/demo1"
+      "path": "/org/lingmo/service/demo1"
     },
     {
-      "path": "/org/deepin/service/demo2"
+      "path": "/org/lingmo/service/demo2"
     }
   ]
 }
@@ -148,7 +148,7 @@ F --> K
            QDBusConnection::ExportAllProperties;
 
        auto connection = reinterpret_cast<QDBusConnection *>(data);
-       connection->registerObject("/org/deepin/services/demo1", service, opts);
+       connection->registerObject("/org/lingmo/services/demo1", service, opts);
        return 0;
    }
 
@@ -178,8 +178,8 @@ F --> K
        sd_bus_slot *slot = NULL;
        if (sd_bus_add_object_vtable(bus,
                                    &slot,
-                                   "/org/deepin/service/sdbus/demo1",
-                                   "org.deepin.service.sdbus.demo1",
+                                   "/org/lingmo/service/sdbus/demo1",
+                                   "org.lingmo.service.sdbus.demo1",
                                    calculator_vtable,
                                    NULL) < 0) {
            return -1;
@@ -205,7 +205,7 @@ F --> K
 
 ```json
 {
-  "name": "org.deepin.service.demo",
+  "name": "org.lingmo.service.demo",
   "version": "1.0",
   "startType": "Resident",
   "idleTime": 10
@@ -300,7 +300,7 @@ F --> K
     DemoAdaptor adp(&s);
     // 从QDBusService对象拿到 QDBusConnection 防止注册对象不一致，导致无法正常管理权限
     QDBusConnection connection = s.qDbusConnection();
-    if (!connection.registerObject("/org/deepin/service/demo", &s)) {
+    if (!connection.registerObject("/org/lingmo/service/demo", &s)) {
         qWarning() << "failed to register dbus object" << connection.lastError().message();
     }
     ```
@@ -377,7 +377,7 @@ QDBusService::lockTimer(bool)
       "whitelist": "w1",
       "interfaces": [
         {
-          "interface": "org.deepin.service.demo",
+          "interface": "org.lingmo.service.demo",
           "whitelist": "w1",
           // "permission":true,
           "methods": [
@@ -446,10 +446,10 @@ QDBusService::lockTimer(bool)
 
 重启服务后，即可通过 DBus 命令行或 d-feet 工具查看 json 中的 DBus 服务已被启动，服务名即 json 中的`name`字段配置的内容。
 
-在`org.deepin.ServiceManager1`服务中：
+在`org.lingmo.ServiceManager1`服务中：
 
-- `/org/deepin/ServiceManager1`路径下可查看当前服务中已启动的所有分组进程
-- `/org/deepin/Group1/<group name>`路径下可查看当前分组中加载的所有插件
+- `/org/lingmo/ServiceManager1`路径下可查看当前服务中已启动的所有分组进程
+- `/org/lingmo/Group1/<group name>`路径下可查看当前分组中加载的所有插件
 
 ## 注意事项
 
@@ -470,23 +470,23 @@ function (install_dbus_service arg)
     endif()
 endfunction ()
 
-install_dbus_service(org.deepin.ServiceName)
+install_dbus_service(org.lingmo.ServiceName)
 ```
 
 若是 system 级服务，还需要加一个参数：
 
 ```cmake
-install_dbus_service(org.deepin.ServiceName root)
+install_dbus_service(org.lingmo.ServiceName root)
 ```
 
 若是手写一个 DBus service 文件，以下是一个参考例子：
 
 ```ini
 [D-BUS Service]
-Name=org.deepin.service.demo
-Exec=/usr/bin/deepin-service-manager -n org.deepin.service.demo
+Name=org.lingmo.service.demo
+Exec=/usr/bin/deepin-service-manager -n org.lingmo.service.demo
 User=root
-SystemdService=dde-services@org.deepin.service.demo.service
+SystemdService=dde-services@org.lingmo.service.demo.service
 ```
 
 若需要注册 system 级别 DBus，还需要安装 conf 文件让 DBus 服务能够有权限进行注册，以下是一个例子：
@@ -501,13 +501,13 @@ SystemdService=dde-services@org.deepin.service.demo.service
 
   <!-- Only root can own the service -->
   <policy user="root">
-    <allow own="org.deepin.ServiceManager1"/>
-    <allow send_destination="org.deepin.ServiceManager1"/>
+    <allow own="org.lingmo.ServiceManager1"/>
+    <allow send_destination="org.lingmo.ServiceManager1"/>
   </policy>
 
   <!-- Allow anyone to invoke methods on the interfaces -->
   <policy context="default">
-    <allow send_destination="org.deepin.ServiceManager1"/>
+    <allow send_destination="org.lingmo.ServiceManager1"/>
   </policy>
 
 </busconfig>
@@ -532,7 +532,7 @@ sudo systemctl restart deepin-service-group@app.service
 对于非常驻插件，可以单独进程启动：
 
 ```bash
-sudo systemctl restart dde-services@org.deepin.service.demo.service
+sudo systemctl restart dde-services@org.lingmo.service.demo.service
 ```
 
 ### 查看日志
@@ -546,7 +546,7 @@ sudo journalctl -x -e -u deepin-service-group@app.service
 若是临时应用，可按服务名称查看：
 
 ```bash
-sudo journalctl -x -e -u dde-services@org.deepin.service.demo.service
+sudo journalctl -x -e -u dde-services@org.lingmo.service.demo.service
 ```
 
 ## demo 请参考[这里](src/demo)

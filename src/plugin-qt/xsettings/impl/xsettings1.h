@@ -14,7 +14,7 @@
 class XSettings1 : public QObject
 {
     Q_OBJECT
-    Q_CLASSINFO("D-Bus Interface", "org.deepin.dde.XSettings1")
+    Q_CLASSINFO("D-Bus Interface", "org.lingmo.XSettings1")
 public:
     XSettings1(QObject *parent = nullptr);
     ~XSettings1();

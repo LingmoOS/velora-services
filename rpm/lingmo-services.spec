@@ -1,9 +1,9 @@
-Name:           dde-services
+Name:           lingmo-services
 Version:        1.0.0
 Release:        1%{?dist}
 Summary:        DDE Services for Lingmo OS
 License:        LGPL-3.0-or-later
-URL:            https://github.com/LingmoOS/dde-services
+URL:            https://github.com/LingmoOS/lingmo-services
 Source0:        dde-services-%{version}.tar.gz
 
 BuildRequires:  gcc-c++
@@ -32,8 +32,8 @@ for the Lingmo desktop environment.
 %files
 %doc README.md
 %license LICENSE*
-%{_bindir}/dde-services*
-%{_libdir}/dde-services/
+%{_bindir}/lingmo-services*
+%{_libdir}/lingmo-services/
 %{_datadir}/dbus-1/services/*.service
 %{_datadir}/dbus-1/system-services/*.service
 
