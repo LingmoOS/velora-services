@@ -1,3 +1,10 @@
+velora-services (1.0.24.lingmo5u1) unstable; urgency=medium
+
+  * fix: xsettings 的默认图标主题由 bloom 改为 Lingmo
+    - org.deepin.XSettings 的 icon-theme-name 会通过 Net/IconThemeName 下发给
+      X11/GTK 应用，默认值同步为 Lingmo；光标主题(gtk-cursor-theme-name)未改
+ -- Lingmo OS Team <team@lingmo.org>  Wed, 14 Oct 2026 16:39:57 +0800
+
 velora-services (1.0.23.lingmo.1) unstable; urgency=medium
 
   * new release for Lingmo OS.
